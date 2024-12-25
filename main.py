@@ -7,12 +7,15 @@ from aiogram.enums.chat_action import ChatAction
 from aiogram.fsm.state import StatesGroup, State, default_state
 from aiogram.fsm.context import FSMContext
 
-from config import BOT_TOKEN
+from config import BOT_TOKEN, PORT_STR
 from languages import LanguageSelector
 from translate import translate_text_mymemory
 
 import asyncio
 import logging
+
+
+PORT = int(PORT_STR)
 
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
