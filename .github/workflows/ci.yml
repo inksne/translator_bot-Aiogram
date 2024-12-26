@@ -11,6 +11,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest 
+
+    env:
+      BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+      PORT: 10000
     
     steps:
       - name: Check out repository
