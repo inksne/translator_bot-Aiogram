@@ -51,7 +51,7 @@ jobs:
 
       - name: Run tests
         run: |
-          docker run --rm inksne/back-image pytest -v -s
+          docker run -e BOT_TOKEN=${{ secrets.BOT_TOKEN }} -e PORT=10000 --rm inksne/back-image pytest -v -s
 
   # deploy:
   #   runs-on: ubuntu-latest
