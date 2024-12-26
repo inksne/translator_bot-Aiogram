@@ -15,11 +15,6 @@ import asyncio
 import logging
 
 
-if not PORT_STR:
-    PORT = 10000
-else:
-    PORT = int(PORT_STR)
-
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
 
