@@ -9,4 +9,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "10000:10000"
+    env_file:
+      - .env
     command: ["python", "main.py"]
