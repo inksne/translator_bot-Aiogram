@@ -8,8 +8,6 @@ COPY requirements.txt .
 
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-COPY .env .env
-
 COPY . .
 
 EXPOSE 10000
