@@ -51,7 +51,7 @@ jobs:
 
       - name: Run tests
         run: |
-          docker run --rm --env-file .env inksne/back-image pytest -v -s
+          docker run --rm inksne/back-image pytest -v -s
 
   # deploy:
   #   runs-on: ubuntu-latest
