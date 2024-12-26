@@ -16,6 +16,8 @@ import logging
 
 
 PORT = int(PORT_STR)
+if not PORT:
+    PORT = 10000
 
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
