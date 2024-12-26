@@ -49,14 +49,14 @@ jobs:
         run: |
           docker run --rm your-dockerhub-username/back-image pytest -v -s
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: test  
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   needs: test  
 
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v3
+  #   steps:
+  #     - name: Check out repository
+  #       uses: actions/checkout@v3
 
-      - name: Set up Docker Compose
-        run: |
-          docker-compose up -d
+  #     - name: Set up Docker Compose
+  #       run: |
+  #         docker-compose up -d
