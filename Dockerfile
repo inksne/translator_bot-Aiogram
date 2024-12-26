@@ -10,4 +10,6 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 
 COPY . .
 
+COPY .env .env
+
 EXPOSE 10000
