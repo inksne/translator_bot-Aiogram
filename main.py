@@ -8,6 +8,7 @@ from aiogram.fsm.state import StatesGroup, State, default_state
 from aiogram.fsm.context import FSMContext
 
 from fastapi import FastAPI
+import uvicorn
 
 from config import BOT_TOKEN
 from languages import LanguageSelector
@@ -140,9 +141,19 @@ async def handle_trg_lang(message: types.Message, state: FSMContext):
             await message.answer(text='Язык не найден.')
 
 
-async def main():
+async def start_bot():
     logging.basicConfig(level=logging.INFO)
     await dp.start_polling(bot)
+
+
+async def main():
+    uvicorn_config = uvicorn.Config("main:app", host="0.0.0.0", port=10000)
+    server = uvicorn.Server(uvicorn_config)
+    
+    await asyncio.gather(
+        start_bot(),
+        server.serve()
+    )
 
 
 if __name__ == '__main__':
