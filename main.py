@@ -7,7 +7,9 @@ from aiogram.enums.chat_action import ChatAction
 from aiogram.fsm.state import StatesGroup, State, default_state
 from aiogram.fsm.context import FSMContext
 
-from config import BOT_TOKEN, PORT_STR
+from fastapi import FastAPI
+
+from config import BOT_TOKEN
 from languages import LanguageSelector
 from translate import translate_text_mymemory
 
@@ -17,6 +19,9 @@ import logging
 
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
+
+
+app = FastAPI()
 
 
 class Translate(StatesGroup):
