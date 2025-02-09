@@ -1,8 +1,6 @@
-version: '3.8'
-
 services:
   back:
-    image: inksne/back-image:latest
+    image: inksne/tr-back-image:latest
     container_name: back-container
     build:
       context: .
@@ -10,5 +8,6 @@ services:
     ports:
       - "10000:10000"
     env_file:
-      - .env
+      - ./.env
     command: ["python", "main.py"]
+    restart: always

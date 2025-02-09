@@ -1,0 +1,7 @@
+__pycache__/
+.pytest_cache/
+.github/
+.gitignore
+README.md
+LICENSE
+tr_env/

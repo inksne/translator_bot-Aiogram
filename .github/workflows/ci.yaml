@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: Translator Bot CI Pipeline
 
 on:
   push:
@@ -14,7 +14,6 @@ jobs:
 
     env:
       BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-      PORT: 10000
     
     steps:
       - name: Check out repository
@@ -31,11 +30,11 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t inksne/back-image:latest .
+          docker build -t inksne/tr-back-image:latest .
 
       - name: Push Docker image to DockerHub
         run: |
-          docker push inksne/back-image:latest
+          docker push inksne/tr-back-image:latest
 
   test:
     runs-on: ubuntu-latest
@@ -47,11 +46,11 @@ jobs:
 
       - name: Pull Docker image from DockerHub
         run: |
-          docker pull inksne/back-image:latest
+          docker pull inksne/tr-back-image:latest
 
       - name: Run tests
         run: |
-          docker run -e BOT_TOKEN=${{ secrets.BOT_TOKEN }} -e PORT=10000 --rm inksne/back-image pytest -v -s
+          docker run -e BOT_TOKEN=${{ secrets.BOT_TOKEN }} --rm inksne/back-image pytest -v -s
 
   # deploy:
   #   runs-on: ubuntu-latest
